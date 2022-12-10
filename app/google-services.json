@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "775391278601",
+    "project_id": "subchats-ae53f",
+    "storage_bucket": "subchats-ae53f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775391278601:android:b44086148a77f2d2c22ad8",
+        "android_client_info": {
+          "package_name": "com.example.subchats"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "775391278601-hn71qmpgod7uk1u4jnluov4h90j9bkdi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqCqCglr_h2UnLJKiI6F_tTdO1eFmsxS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "775391278601-hn71qmpgod7uk1u4jnluov4h90j9bkdi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
