@@ -23,6 +23,7 @@ class SubchatActivity : AppCompatActivity() {
     private lateinit var mDbRef: DatabaseReference
 
     var receiverUid : String? = null
+    var selectedMessages : List<Message>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,15 +31,23 @@ class SubchatActivity : AppCompatActivity() {
 
         receiverUid = intent.getStringExtra("receiverUid")
 
+        if (intent.getSerializableExtra("selectedMessages") != null) {
+            Log.i(TAG, "selectedMessages")
+            selectedMessages =  intent.getSerializableExtra("selectedMessages") as List<Message>
+        } else {
+            Log.i(TAG, "selectedMessages null")
+        }
+
         mAuth = FirebaseAuth.getInstance()
         mDbRef = FirebaseDatabase.getInstance().reference
 
         subchatList = ArrayList()
-        subchatAdapter = SubchatAdapter(this, subchatList, receiverUid)
+        subchatAdapter = SubchatAdapter(this, subchatList, receiverUid, selectedMessages)
         subchatRecyclerView = findViewById(R.id.subchatRecyclerView)
 
         subchatRecyclerView.layoutManager = LinearLayoutManager(this)
         subchatRecyclerView.adapter = subchatAdapter
+
 
         mDbRef.child("subchats").addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {

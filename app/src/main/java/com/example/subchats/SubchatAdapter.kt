@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
+import java.io.Serializable
 
-class SubchatAdapter(val context : Context, val subchatList : ArrayList<Subchat>, val receiverUid : String?) : RecyclerView.Adapter<SubchatAdapter.SubchatViewHolder>() {
+class SubchatAdapter(val context : Context, val subchatList : ArrayList<Subchat>, val receiverUid : String?, val selectedMessages : List<Message>?) : RecyclerView.Adapter<SubchatAdapter.SubchatViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubchatViewHolder {
         val view : View = LayoutInflater.from(context).inflate(R.layout.subchat_layout, parent, false)
@@ -25,6 +26,8 @@ class SubchatAdapter(val context : Context, val subchatList : ArrayList<Subchat>
             val intent = Intent(context, ChatActivity::class.java)
             intent.putExtra("subchatName", currentSubchat.chatname)
             intent.putExtra("receiverUid", receiverUid)
+            if (selectedMessages != null)
+                intent.putExtra("selectedMessages", selectedMessages as Serializable)
             context.startActivity(intent)
         }
     }

@@ -1,9 +1,10 @@
 package com.example.subchats
 
-class Message {
+class Message : java.io.Serializable{
     var message: String? = null
     var subchatName: String? = null
     var senderId: String? = null
+    var selected: Boolean= false
 
     constructor(){}
 
